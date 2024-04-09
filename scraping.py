@@ -26,14 +26,14 @@ def scrap_tags(url):
         rank = index + 1
         score = 10 - (rank - 1) // 10
 
-        # 제품 상세 페이지 링크 추출
+        # 상세 페이지 링크 추출
         product_link = product.find('a', class_='img-block')['href']
 
-        # 제품 상세 페이지로 HTTP GET
+        # 상세 페이지 HTTP GET
         product_response = requests.get(product_link, headers=headers)
         product_soup = BeautifulSoup(product_response.text, 'html.parser')
 
-        # 상세 페이지에서 script 태그 내 JSON 데이터 추출
+        # 태그 추출
         script_text = product_soup.find('script', text=re.compile('goodsTags'))
         
         json_data = re.search(r'"goodsTags":\s*(\[[^\]]*\])', script_text.text)

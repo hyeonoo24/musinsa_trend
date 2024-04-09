@@ -9,3 +9,6 @@ shoes = 'https://www.musinsa.com/ranking/best?period=month&age=ALL&mainCategory=
 
 # 워드 클라우드 생성
 make_cloud(scrap_tags(top))
+make_cloud(scrap_tags(outer))
+make_cloud(scrap_tags(pants))
+make_cloud(scrap_tags(shoes))
